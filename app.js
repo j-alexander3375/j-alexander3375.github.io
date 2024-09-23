@@ -1,7 +1,9 @@
-let button1 = document.getElementById('button1');
+document.addEventListener('DOMContentLoaded', function() {
+  let button1 = document.getElementById('button1');
 
-function clickPrompt() {
-  alert('You clicked the button!');
-}
+  function clickPrompt() {
+    alert('You clicked the button!');
+  }
 
-button1.addEventListener('click', clickPrompt);
+  button1.addEventListener('click', clickPrompt);
+});
