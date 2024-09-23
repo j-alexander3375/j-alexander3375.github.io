@@ -7,3 +7,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   button1.addEventListener('click', clickPrompt);
 });
+
