@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - Lotus Programming Language</title>
+    <meta name="description" content="Multi-platform installation guide for Lotus. Install via AUR on Arch Linux or build from source on any system.">
+    <meta name="keywords" content="Lotus install, download, AUR package, Linux, macOS, Windows, build from source">
+    <meta name="author" content="j-alexander3375">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Installation - Lotus">
+    <meta property="og:description" content="Multi-platform installation guide for Lotus programming language">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lotus-lang.dev/install.html">
+    <meta property="og:site_name" content="Lotus Programming Language">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Install Lotus">
+    <meta name="twitter:description" content="Multi-platform installation guide for Lotus programming language">
+    <meta name="twitter:site" content="@LotusLang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lotus-lang.dev/install.html">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🪷 Lotus</h1>
+        <p>A elegant and modern systems programming language</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="docs.html">Documentation</a>
+        <a href="examples.html">Examples</a>
+        <a href="install.html" class="active">Install</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Install Lotus</h2>
+            <p>Multiple installation methods are available. Choose the one that works best for your system.</p>
+        </section>
+
+        <section>
+            <h3>📦 Arch Linux / AUR</h3>
+            <p>The easiest way to install on Arch Linux:</p>
+
+            <h4>Using an AUR Helper (yay, paru, etc.)</h4>
+            <pre>yay -S lotus-lang</pre>
+
+            <h4>Manual AUR Installation</h4>
+            <pre>git clone https://aur.archlinux.org/lotus-lang.git
+cd lotus-lang
+makepkg -si</pre>
+
+            <p>Visit the <a href="https://aur.archlinux.org/packages/lotus-lang" class="button aur">AUR Package Page</a></p>
+        </section>
+
+        <section>
+            <h3>🔨 From Source</h3>
+            <p>Build Lotus from source using Go 1.20 or later:</p>
+
+            <h4>Prerequisites</h4>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Go 1.20 or later</li>
+                <li>GCC (for assembling/linking)</li>
+                <li>Git</li>
+            </ul>
+
+            <h4>Build Steps</h4>
+            <pre>git clone https://github.com/j-alexander3375/Lotus.git
+cd Lotus
+go build -o lotus ./src</pre>
+
+            <h4>Installation</h4>
+            <pre># Optionally copy to a system path
+sudo cp lotus /usr/local/bin/
+
+# Or add current directory to PATH
+export PATH=$PATH:$(pwd)</pre>
+
+            <h4>Verify Installation</h4>
+            <pre>lotus --version</pre>
+        </section>
+
+        <section>
+            <h3>🐧 Linux (Generic)</h3>
+            <p>For other Linux distributions, build from source:</p>
+
+            <h4>Install Dependencies</h4>
+            <p><strong>Debian/Ubuntu:</strong></p>
+            <pre>sudo apt install golang-go gcc git</pre>
+
+            <p><strong>Fedora/RHEL:</strong></p>
+            <pre>sudo dnf install golang gcc git</pre>
+
+            <p><strong>openSUSE:</strong></p>
+            <pre>sudo zypper install go gcc git</pre>
+
+            <p>Then follow the "Build Steps" above.</p>
+        </section>
+
+        <section>
+            <h3>🍎 macOS</h3>
+            <p>Install Lotus on macOS using Homebrew or from source:</p>
+
+            <h4>Via Homebrew (when available)</h4>
+            <pre>brew tap j-alexander3375/lotus
+brew install lotus-lang</pre>
+
+            <h4>From Source</h4>
+            <pre># Install dependencies
+brew install go gcc
+
+# Clone and build
+git clone https://github.com/j-alexander3375/Lotus.git
+cd Lotus
+go build -o lotus ./src
+
+# Install
+sudo cp lotus /usr/local/bin/</pre>
+        </section>
+
+        <section>
+            <h3>🪟 Windows</h3>
+            <p>Lotus can be built on Windows using WSL2 or MSYS2:</p>
+
+            <h4>Using WSL2 (Recommended)</h4>
+            <p>Install Windows Subsystem for Linux 2 and use the Linux instructions above.</p>
+
+            <h4>Using MSYS2</h4>
+            <pre>pacman -S mingw-w64-x86_64-go mingw-w64-x86_64-gcc git
+git clone https://github.com/j-alexander3375/Lotus.git
+cd Lotus
+go build -o lotus.exe ./src</pre>
+        </section>
+
+        <section>
+            <h3>✅ Verify Installation</h3>
+            <p>Test your installation:</p>
+
+            <h4>Check Version</h4>
+            <pre>lotus --version</pre>
+
+            <h4>Run a Simple Program</h4>
+            <p>Create <code>hello.lts</code>:</p>
+            <pre>use "io";
+
+fn int main() {
+    println("Hello from Lotus!");
+    ret 0;
+}</pre>
+
+            <p>Compile and run:</p>
+            <pre>lotus -run hello.lts</pre>
+
+            <p>You should see: <code>Hello from Lotus!</code></p>
+        </section>
+
+        <section>
+            <h3>🆘 Troubleshooting</h3>
+
+            <h4>Command not found: lotus</h4>
+            <p>Make sure the lotus binary is in your PATH:</p>
+            <pre>which lotus
+# or
+type lotus</pre>
+
+            <p>If not found, add the directory containing lotus to your PATH or use the full path to the binary.</p>
+
+            <h4>GCC not found</h4>
+            <p>Install GCC for your system:</p>
+            <pre># Linux
+sudo apt install gcc  # Debian/Ubuntu
+sudo dnf install gcc  # Fedora
+
+# macOS
+brew install gcc</pre>
+
+            <h4>Go not found</h4>
+            <p>Install Go 1.20 or later from <a href="https://golang.org/dl">golang.org</a></p>
+
+            <h4>Permission denied when installing</h4>
+            <p>Use <code>sudo</code> when copying to system paths:</p>
+            <pre>sudo cp lotus /usr/local/bin/</pre>
+        </section>
+
+        <section>
+            <h3>📚 Next Steps</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><a href="getting-started.html">Read the Getting Started Guide</a></li>
+                <li><a href="examples.html">Explore Examples</a></li>
+                <li><a href="docs.html">Browse Full Documentation</a></li>
+                <li><a href="https://github.com/j-alexander3375/Lotus">Visit GitHub Repository</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lotus Language. Licensed under MIT.</p>
+        <p><a href="https://github.com/j-alexander3375/Lotus">GitHub</a> | 
+           <a href="https://aur.archlinux.org/packages/lotus-lang">AUR</a> | 
+           <a href="docs.html">Documentation</a></p>
+    </footer>
+
+    <!-- SEO and Translation Services -->
+    <script src="js/seo.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Lotus Programming Language</title>
+    <meta name="description" content="Complete language reference, API documentation, and compiler usage guide for Lotus programming language.">
+    <meta name="keywords" content="Lotus documentation, language reference, API docs, compiler, syntax, standard library">
+    <meta name="author" content="j-alexander3375">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Documentation - Lotus">
+    <meta property="og:description" content="Complete reference for Lotus language and standard library">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lotus-lang.dev/docs.html">
+    <meta property="og:site_name" content="Lotus Programming Language">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lotus Documentation">
+    <meta name="twitter:description" content="Complete reference for Lotus language and standard library">
+    <meta name="twitter:site" content="@LotusLang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lotus-lang.dev/docs.html">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🪷 Lotus</h1>
+        <p>A elegant and modern systems programming language</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="docs.html" class="active">Documentation</a>
+        <a href="examples.html">Examples</a>
+        <a href="install.html">Install</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Lotus Documentation</h2>
+            <p>Complete reference documentation for the Lotus programming language. These guides cover language features, standard library, coding style, and compiler details.</p>
+        </section>
+
+        <section>
+            <h3>📚 Essential Guides</h3>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h4>Language Style Guide</h4>
+                    <p>Naming conventions, formatting, and Lotus idioms. Learn how to write idiomatic Lotus code.</p>
+                    <a href="https://github.com/j-alexander3375/Lotus/blob/master/Important_Documentation/STYLE_GUIDE.md" class="button secondary">Read Guide</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Standard Library & Imports</h4>
+                    <p>Complete reference for all stdlib modules (io, mem, math, str) with usage examples.</p>
+                    <a href="https://github.com/j-alexander3375/Lotus/blob/master/Important_Documentation/STDLIB_AND_IMPORTS.md" class="button secondary">Read Guide</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Stdlib Implementation</h4>
+                    <p>Technical details about how the stdlib is organized and how to extend it.</p>
+                    <a href="https://github.com/j-alexander3375/Lotus/blob/master/Important_Documentation/STDLIB_IMPLEMENTATION.md" class="button secondary">Read Guide</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Development Guide</h4>
+                    <p>Project architecture, compiler phases, and contributor information.</p>
+                    <a href="https://github.com/j-alexander3375/Lotus/blob/master/Important_Documentation/DEVELOPMENT.md" class="button secondary">Read Guide</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔤 Language Reference</h3>
+            
+            <h4>Type System</h4>
+            <pre>// Integer types
+int, int8, int16, int32, int64
+uint, uint8, uint16, uint32, uint64
+
+// Floating point
+float
+
+// Boolean
+bool
+
+// String
+string
+
+// Pointer
+int* ptr   // Postfix asterisk</pre>
+
+            <h4>Variable Declaration</h4>
+            <pre>// Type-first declarations
+int count = 42;
+string message = "Hello";
+bool flag = true;
+
+// Pointers
+int* buffer = malloc(sizeof(int) * 10);
+
+// Constants (compile-time)
+const int MAX_SIZE = 1000;
+const string VERSION = "1.0.0";</pre>
+
+            <h4>Functions</h4>
+            <pre>// Function definition with return type
+fn int add(int a, int b) {
+    ret a + b;
+}
+
+// Function call
+int result = add(5, 3);</pre>
+
+            <h4>Control Flow</h4>
+            <pre>// if/else
+if condition {
+    // body
+} else {
+    // body
+}
+
+// while loop
+while condition {
+    // body
+}
+
+// for loop
+for int i = 0; i < 10; i = i + 1 {
+    // body
+}</pre>
+        </section>
+
+        <section>
+            <h3>📦 Standard Library Modules</h3>
+            
+            <h4>io - Input/Output</h4>
+            <pre>use "io";
+
+println("Hello, World!");
+printf("Number: %d\n", 42);
+printf("String: %s\n", "Lotus");</pre>
+
+            <p><strong>Functions:</strong> print, println, printf, fprintf, sprint, sprintf, sprintln</p>
+            <p><strong>Printf verbs:</strong> %d (int), %s (string), %x (hex), %b (binary), %o (octal), %c (char), %q (quoted string), %v (generic)</p>
+
+            <h4>mem - Memory Management</h4>
+            <pre>use "mem";
+
+int* buffer = malloc(sizeof(int) * 10);
+free(buffer);</pre>
+
+            <p><strong>Functions:</strong> malloc(size), free(ptr), sizeof(type)</p>
+
+            <h4>math - Mathematical Operations</h4>
+            <pre>use "math";
+
+int abs_val = abs(-42);
+int max_val = max(10, 20);
+int min_val = min(10, 20);</pre>
+
+            <p><strong>Implemented:</strong> abs, min, max</p>
+            <p><strong>Pending:</strong> sqrt, pow</p>
+
+            <h4>str - String Operations</h4>
+            <pre>use "str";
+
+int length = len("Lotus");
+// concat, compare, copy pending</pre>
+
+            <p><strong>Implemented:</strong> len</p>
+            <p><strong>Pending:</strong> concat, compare, copy</p>
+        </section>
+
+        <section>
+            <h3>🎯 Compiler Usage</h3>
+            
+            <h4>Command-line Flags</h4>
+            <pre>lotus [flags] &lt;file&gt;
+
+Flags:
+  -S              Generate assembly only (.s file)
+  -o FILE         Output file name (default: a.out)
+  -run            Compile and run immediately
+  -v              Verbose output
+  -version        Show compiler version
+  -h, -help       Show help message</pre>
+
+            <h4>Examples</h4>
+            <pre># Compile to binary
+lotus program.lts
+
+# Compile to assembly
+lotus -S program.lts -o program.s
+
+# Compile and run
+lotus -run program.lts
+
+# Verbose compilation
+lotus -v program.lts</pre>
+        </section>
+
+        <section>
+            <h3>🔧 Advanced Topics</h3>
+            
+            <h4>Assembly Output</h4>
+            <p>Generate and inspect x86-64 assembly:</p>
+            <pre>lotus -S -o program.s program.lts
+cat program.s</pre>
+
+            <h4>Extending the Standard Library</h4>
+            <p>See <a href="https://github.com/j-alexander3375/Lotus/blob/master/Important_Documentation/STDLIB_IMPLEMENTATION.md">STDLIB_IMPLEMENTATION.md</a> for details on adding new modules and functions.</p>
+
+            <h4>Architecture</h4>
+            <p>Lotus uses a multi-phase compiler:</p>
+            <pre>Source Code
+    ↓
+Tokenizer (Lexical Analysis)
+    ↓
+Parser (Syntax Analysis)
+    ↓
+Code Generator (Assembly Generation)
+    ↓
+GCC (Assembler/Linker)
+    ↓
+Binary Executable</pre>
+        </section>
+
+        <section>
+            <h3>📖 Quick Links</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><a href="https://github.com/j-alexander3375/Lotus">GitHub Repository</a></li>
+                <li><a href="https://github.com/j-alexander3375/Lotus/tree/master/Important_Documentation">Full Documentation Files</a></li>
+                <li><a href="examples.html">Code Examples</a></li>
+                <li><a href="getting-started.html">Getting Started Guide</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lotus Language. Licensed under MIT.</p>
+        <p><a href="https://github.com/j-alexander3375/Lotus">GitHub</a> | 
+           <a href="https://aur.archlinux.org/packages/lotus-lang">AUR</a> | 
+           <a href="docs.html">Documentation</a></p>
+    </footer>
+
+    <!-- SEO and Translation Services -->
+    <script src="js/seo.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

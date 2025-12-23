@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - Lotus Programming Language</title>
+    <meta name="description" content="Learn how to install and get started with the Lotus programming language. Complete setup guide for all platforms.">
+    <meta name="keywords" content="Lotus installation, getting started, tutorial, setup, AUR, source build">
+    <meta name="author" content="j-alexander3375">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Getting Started - Lotus">
+    <meta property="og:description" content="Install and get started with Lotus programming language">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lotus-lang.dev/getting-started.html">
+    <meta property="og:site_name" content="Lotus Programming Language">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Getting Started with Lotus">
+    <meta name="twitter:description" content="Install and get started with Lotus programming language">
+    <meta name="twitter:site" content="@LotusLang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lotus-lang.dev/getting-started.html">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🪷 Lotus</h1>
+        <p>A elegant and modern systems programming language</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html" class="active">Getting Started</a>
+        <a href="docs.html">Documentation</a>
+        <a href="examples.html">Examples</a>
+        <a href="install.html">Install</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Getting Started with Lotus</h2>
+            <p>Lotus is a systems programming language that combines the safety philosophy of Rust, the performance of C++, and the simplicity of Go. Here's how to get up and running.</p>
+        </section>
+
+        <section>
+            <h3>Installation</h3>
+            <p>Choose your installation method:</p>
+
+            <h4>Arch Linux / AUR</h4>
+            <pre>yay -S lotus-lang
+# or
+git clone https://aur.archlinux.org/lotus-lang.git
+cd lotus-lang
+makepkg -si</pre>
+
+            <h4>From Source</h4>
+            <pre>git clone https://github.com/j-alexander3375/Lotus.git
+cd Lotus
+go build -o lotus ./src
+# Optionally: sudo cp lotus /usr/local/bin/</pre>
+
+            <p><a href="install.html" class="button">More Installation Options</a></p>
+        </section>
+
+        <section>
+            <h3>Your First Program</h3>
+            <p>Create a file called <code>hello.lts</code>:</p>
+            <pre>use "io";
+
+fn int main() {
+    println("Hello, Lotus!");
+    ret 0;
+}</pre>
+
+            <p>Compile and run:</p>
+            <pre>lotus hello.lts
+./a.out</pre>
+
+            <p>Or in one command:</p>
+            <pre>lotus -run hello.lts</pre>
+        </section>
+
+        <section>
+            <h3>Key Language Features</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <h4>🔤 Type-First Bindings</h4>
+                    <p>Declare variables with type first, Lotus-style:</p>
+                    <code>int count = 42;</code>
+                </div>
+                <div class="feature-card">
+                    <h4>📦 Modular Imports</h4>
+                    <p>Rust-inspired import syntax with clear dependencies:</p>
+                    <code>use "io";
+use "math";</code>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Direct Assembly</h4>
+                    <p>Compiles to x86-64 GNU assembly with full control:</p>
+                    <code>lotus -S program.lts</code>
+                </div>
+                <div class="feature-card">
+                    <h4>🛡️ Memory Safety</h4>
+                    <p>Explicit control with malloc/free and type safety:</p>
+                    <code>use "mem";
+int* ptr = malloc(sizeof(int));</code>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Basic Syntax Overview</h3>
+
+            <h4>Functions</h4>
+            <pre>fn int add(int a, int b) {
+    ret a + b;
+}
+
+fn int main() {
+    int result = add(5, 3);
+    printf("Result: %d\n", result);
+    ret 0;
+}</pre>
+
+            <h4>Variables and Constants</h4>
+            <pre>// Type-first variable declaration
+int count = 0;
+string message = "Hello";
+bool flag = true;
+
+// Constants
+const int MAX_SIZE = 100;
+const string VERSION = "1.0.0";</pre>
+
+            <h4>Control Flow</h4>
+            <pre>// if/else
+if count > 0 {
+    println("Positive");
+} else {
+    println("Non-positive");
+}
+
+// while loop
+while count < 10 {
+    count = count + 1;
+}
+
+// for loop
+for int i = 0; i < 5; i = i + 1 {
+    printf("%d\n", i);
+}</pre>
+
+            <h4>Printf Formatting</h4>
+            <p>Lotus supports Go-like printf verbs:</p>
+            <pre>use "io";
+
+fn int main() {
+    printf("Integer: %d\n", 42);
+    printf("Hex: %x\n", 255);
+    printf("Binary: %b\n", 15);
+    printf("String: %s\n", "Lotus");
+    ret 0;
+}</pre>
+        </section>
+
+        <section>
+            <h3>Standard Library Modules</h3>
+            <p>Lotus comes with modular standard library:</p>
+
+            <table>
+                <tr>
+                    <th>Module</th>
+                    <th>Functions</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td><code>io</code></td>
+                    <td>print, println, printf, fprintf, sprint, sprintf, sprintln</td>
+                    <td>Input/output and string formatting</td>
+                </tr>
+                <tr>
+                    <td><code>mem</code></td>
+                    <td>malloc, free, sizeof</td>
+                    <td>Dynamic memory management</td>
+                </tr>
+                <tr>
+                    <td><code>math</code></td>
+                    <td>abs, min, max, sqrt, pow</td>
+                    <td>Mathematical operations</td>
+                </tr>
+                <tr>
+                    <td><code>str</code></td>
+                    <td>len, concat, compare, copy</td>
+                    <td>String manipulation</td>
+                </tr>
+            </table>
+
+            <p><a href="docs.html" class="button">Read Full Documentation</a></p>
+        </section>
+
+        <section>
+            <h3>Next Steps</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><a href="examples.html">Explore Examples</a> - See real-world Lotus programs</li>
+                <li><a href="docs.html">Read the Documentation</a> - Learn all language features</li>
+                <li><a href="https://github.com/j-alexander3375/Lotus">GitHub Repository</a> - Contribute or report issues</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lotus Language. Licensed under MIT.</p>
+        <p><a href="https://github.com/j-alexander3375/Lotus">GitHub</a> | 
+           <a href="https://aur.archlinux.org/packages/lotus-lang">AUR</a> | 
+           <a href="docs.html">Documentation</a></p>
+    </footer>
+
+    <!-- SEO and Translation Services -->
+    <script src="js/seo.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

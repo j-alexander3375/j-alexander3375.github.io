@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Examples - Lotus Programming Language</title>
+    <meta name="description" content="Practical code examples demonstrating Lotus language features, from hello world to advanced patterns.">
+    <meta name="keywords" content="Lotus examples, code samples, tutorials, hello world, programming examples">
+    <meta name="author" content="j-alexander3375">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Examples - Lotus">
+    <meta property="og:description" content="Practical code examples for Lotus programming language">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lotus-lang.dev/examples.html">
+    <meta property="og:site_name" content="Lotus Programming Language">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lotus Programming Examples">
+    <meta name="twitter:description" content="Practical code examples for Lotus programming language">
+    <meta name="twitter:site" content="@LotusLang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lotus-lang.dev/examples.html">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🪷 Lotus</h1>
+        <p>A elegant and modern systems programming language</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="docs.html">Documentation</a>
+        <a href="examples.html" class="active">Examples</a>
+        <a href="install.html">Install</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Lotus Examples</h2>
+            <p>Learn Lotus by exploring practical examples. Each example demonstrates key language features and patterns.</p>
+        </section>
+
+        <section>
+            <h3>Hello World</h3>
+            <p>The simplest Lotus program:</p>
+            <div class="example-block">
+                <pre>use "io";
+
+fn int main() {
+    println("Hello, World!");
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Working with Functions</h3>
+            <p>Functions with parameters and return values:</p>
+            <div class="example-block">
+                <pre>use "io";
+
+fn int factorial(int n) {
+    if n <= 1 {
+        ret 1;
+    }
+    ret n * factorial(n - 1);
+}
+
+fn int main() {
+    int result = factorial(5);
+    printf("5! = %d\n", result);
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Using Standard Library - Math Module</h3>
+            <p>Compute maximum and absolute values:</p>
+            <div class="example-block">
+                <pre>use "io";
+use "math";
+
+fn int main() {
+    int a = -10;
+    int b = 20;
+    int magnitude = abs(a);
+    int larger = max(magnitude, b);
+    
+    printf("abs(%d) = %d\n", a, magnitude);
+    printf("max(%d, %d) = %d\n", magnitude, b, larger);
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>String Operations</h3>
+            <p>Using the string module:</p>
+            <div class="example-block">
+                <pre>use "io";
+use "str";
+
+fn int main() {
+    string name = "Lotus";
+    int length = len(name);
+    
+    printf("Language: %s\n", name);
+    printf("Length: %d\n", length);
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Printf Formatting</h3>
+            <p>Demonstrating different printf verbs:</p>
+            <div class="example-block">
+                <pre>use "io";
+
+fn int main() {
+    int value = 42;
+    
+    printf("Decimal:  %d\n", value);
+    printf("Hex:      %x\n", value);
+    printf("Octal:    %o\n", value);
+    printf("Binary:   %b\n", value);
+    printf("Character: %c\n", 65);
+    printf("String:   %s\n", "Lotus");
+    
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Loops and Conditionals</h3>
+            <p>Control flow in Lotus:</p>
+            <div class="example-block">
+                <pre>use "io";
+
+fn int main() {
+    // For loop
+    printf("Counting up:\n");
+    for int i = 1; i <= 5; i = i + 1 {
+        printf("%d ", i);
+    }
+    println("");
+    
+    // While loop
+    printf("Countdown:\n");
+    int count = 5;
+    while count > 0 {
+        printf("%d ", count);
+        count = count - 1;
+    }
+    println("");
+    
+    // If/else
+    int age = 18;
+    if age >= 18 {
+        println("Adult");
+    } else {
+        println("Minor");
+    }
+    
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Memory Management</h3>
+            <p>Dynamic memory allocation with malloc/free:</p>
+            <div class="example-block">
+                <pre>use "io";
+use "mem";
+
+fn int main() {
+    int size = 10;
+    int* buffer = malloc(sizeof(int) * size);
+    
+    if buffer != null {
+        printf("Allocated %d bytes\n", sizeof(int) * size);
+        free(buffer);
+        println("Memory freed");
+    }
+    
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Constants and Variables</h3>
+            <p>Using constants and variables together:</p>
+            <div class="example-block">
+                <pre>use "io";
+
+const int MAX_ATTEMPTS = 3;
+const string APP_NAME = "MyApp";
+
+fn int main() {
+    int attempts = 0;
+    string status = "running";
+    
+    printf("App: %s\n", APP_NAME);
+    printf("Max attempts: %d\n", MAX_ATTEMPTS);
+    printf("Status: %s\n", status);
+    
+    while attempts < MAX_ATTEMPTS {
+        printf("Attempt %d\n", attempts + 1);
+        attempts = attempts + 1;
+    }
+    
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>More Resources</h3>
+            <p>For comprehensive documentation and API references:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><a href="docs.html">Full Documentation</a></li>
+                <li><a href="https://github.com/j-alexander3375/Lotus/tree/master/tests">Test Examples</a> in the repository</li>
+                <li><a href="getting-started.html">Getting Started Guide</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lotus Language. Licensed under MIT.</p>
+        <p><a href="https://github.com/j-alexander3375/Lotus">GitHub</a> | 
+           <a href="https://aur.archlinux.org/packages/lotus-lang">AUR</a> | 
+           <a href="docs.html">Documentation</a></p>
+    </footer>
+
+    <!-- SEO and Translation Services -->
+    <script src="js/seo.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

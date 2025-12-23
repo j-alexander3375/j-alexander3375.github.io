@@ -1,0 +1,34 @@
+# robots.txt for Lotus Programming Language Website
+# https://lotus-lang.dev/robots.txt
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /getting-started.html
+Allow: /docs.html
+Allow: /examples.html
+Allow: /install.html
+Allow: /js/
+Allow: /locales/
+Allow: /sitemap.xml
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /build/
+
+# Crawl delay - be respectful
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://lotus-lang.dev/sitemap.xml

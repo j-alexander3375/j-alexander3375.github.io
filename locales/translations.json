@@ -1,0 +1,602 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "gettingStarted": "Getting Started",
+      "documentation": "Documentation",
+      "examples": "Examples",
+      "install": "Install"
+    },
+    "header": {
+      "title": "Lotus",
+      "subtitle": "A elegant and modern systems programming language"
+    },
+    "welcome": {
+      "title": "Welcome to Lotus",
+      "description": "Lotus is a modern systems programming language that combines the safety philosophy of Rust, the performance of C++, and the simplicity of Go. It compiles to x86-64 assembly with a modular standard library and Rust-inspired import syntax."
+    },
+    "features": {
+      "title": "Key Features",
+      "typeSyntax": {
+        "title": "🔤 Type-First Syntax",
+        "description": "Declare variables with type first: int count = 42;"
+      },
+      "modularImports": {
+        "title": "📦 Modular Imports",
+        "description": "Rust-inspired module system: use \"io\";"
+      },
+      "directAssembly": {
+        "title": "⚡ Direct Assembly",
+        "description": "Compiles to x86-64 GNU assembly with full control"
+      },
+      "memorySafety": {
+        "title": "🛡️ Memory Safety",
+        "description": "Explicit memory management with malloc/free and type safety"
+      },
+      "stdlib": {
+        "title": "📚 Standard Library",
+        "description": "Modules for I/O, memory, math, and string operations"
+      },
+      "simpleDesign": {
+        "title": "🎯 Simple Design",
+        "description": "Clear, readable syntax that prioritizes clarity"
+      }
+    },
+    "quickExample": {
+      "title": "Quick Example",
+      "getStarted": "Get Started",
+      "viewMore": "View More Examples"
+    },
+    "installation": {
+      "title": "Installation",
+      "description": "Available on Arch Linux via AUR, or build from source:",
+      "aur": "AUR (Arch Linux)",
+      "source": "From Source",
+      "guide": "Installation Guide",
+      "aurPackage": "AUR Package"
+    },
+    "documentation": {
+      "title": "Documentation & Resources",
+      "gettingStarted": {
+        "title": "📖 Getting Started",
+        "description": "Learn the basics and set up Lotus"
+      },
+      "examples": {
+        "title": "💡 Examples",
+        "description": "Explore practical code examples"
+      },
+      "docs": {
+        "title": "📚 Documentation",
+        "description": "Full language reference and API docs"
+      },
+      "install": {
+        "title": "🔧 Installation",
+        "description": "Multiple installation methods"
+      }
+    },
+    "stdlib": {
+      "title": "Standard Library Modules",
+      "description": "Lotus comes with a modular standard library:",
+      "io": "Printf-style output with full Go-like formatting verbs",
+      "mem": "Dynamic memory allocation with malloc/free/sizeof",
+      "math": "Mathematical functions (abs, min, max, and more)",
+      "str": "String operations (len, concat, compare, copy)",
+      "explore": "Explore Stdlib"
+    },
+    "community": {
+      "title": "Community & Links",
+      "github": "GitHub Repository",
+      "githubDesc": "Source code, issues, and contributions",
+      "aur": "AUR Package",
+      "aurDesc": "Install on Arch Linux",
+      "bugs": "Bug Reports",
+      "bugsDesc": "Report issues or suggest features",
+      "license": "MIT License",
+      "licenseDesc": "Free and open source"
+    },
+    "footer": {
+      "copyright": "© 2025 Lotus Language. Licensed under MIT.",
+      "links": "GitHub | AUR | Documentation"
+    }
+  },
+  "es": {
+    "nav": {
+      "home": "Inicio",
+      "gettingStarted": "Comenzar",
+      "documentation": "Documentación",
+      "examples": "Ejemplos",
+      "install": "Instalar"
+    },
+    "header": {
+      "title": "Lotus",
+      "subtitle": "Un lenguaje de programación de sistemas elegante y moderno"
+    },
+    "welcome": {
+      "title": "Bienvenido a Lotus",
+      "description": "Lotus es un lenguaje de programación de sistemas moderno que combina la filosofía de seguridad de Rust, el rendimiento de C++ y la simplicidad de Go. Se compila a ensamblador x86-64 con una biblioteca estándar modular y sintaxis de importación inspirada en Rust."
+    },
+    "features": {
+      "title": "Características Principales",
+      "typeSyntax": {
+        "title": "🔤 Sintaxis Type-First",
+        "description": "Declara variables con tipo primero: int count = 42;"
+      },
+      "modularImports": {
+        "title": "📦 Importaciones Modulares",
+        "description": "Sistema de módulos inspirado en Rust: use \"io\";"
+      },
+      "directAssembly": {
+        "title": "⚡ Ensamblador Directo",
+        "description": "Se compila a ensamblador GNU x86-64 con control total"
+      },
+      "memorySafety": {
+        "title": "🛡️ Seguridad de Memoria",
+        "description": "Gestión explícita de memoria con malloc/free y seguridad de tipos"
+      },
+      "stdlib": {
+        "title": "📚 Biblioteca Estándar",
+        "description": "Módulos para operaciones de E/S, memoria, matemáticas y cadenas"
+      },
+      "simpleDesign": {
+        "title": "🎯 Diseño Simple",
+        "description": "Sintaxis clara y legible que prioriza la claridad"
+      }
+    },
+    "quickExample": {
+      "title": "Ejemplo Rápido",
+      "getStarted": "Comenzar",
+      "viewMore": "Ver Más Ejemplos"
+    },
+    "installation": {
+      "title": "Instalación",
+      "description": "Disponible en Arch Linux a través de AUR, o construir desde la fuente:",
+      "aur": "AUR (Arch Linux)",
+      "source": "Desde la Fuente",
+      "guide": "Guía de Instalación",
+      "aurPackage": "Paquete AUR"
+    },
+    "documentation": {
+      "title": "Documentación y Recursos",
+      "gettingStarted": {
+        "title": "📖 Comenzar",
+        "description": "Aprende los conceptos básicos e instala Lotus"
+      },
+      "examples": {
+        "title": "💡 Ejemplos",
+        "description": "Explora ejemplos prácticos de código"
+      },
+      "docs": {
+        "title": "📚 Documentación",
+        "description": "Referencia completa del lenguaje y documentos API"
+      },
+      "install": {
+        "title": "🔧 Instalación",
+        "description": "Múltiples métodos de instalación"
+      }
+    },
+    "stdlib": {
+      "title": "Módulos de Biblioteca Estándar",
+      "description": "Lotus viene con una biblioteca estándar modular:",
+      "io": "Salida estilo Printf con todos los verbos de formato similares a Go",
+      "mem": "Asignación dinámica de memoria con malloc/free/sizeof",
+      "math": "Funciones matemáticas (abs, min, max, y más)",
+      "str": "Operaciones de cadena (len, concat, compare, copy)",
+      "explore": "Explorar Stdlib"
+    },
+    "community": {
+      "title": "Comunidad y Enlaces",
+      "github": "Repositorio GitHub",
+      "githubDesc": "Código fuente, problemas y contribuciones",
+      "aur": "Paquete AUR",
+      "aurDesc": "Instalar en Arch Linux",
+      "bugs": "Reportes de Errores",
+      "bugsDesc": "Reportar problemas o sugerir características",
+      "license": "Licencia MIT",
+      "licenseDesc": "Gratuito y de código abierto"
+    },
+    "footer": {
+      "copyright": "© 2025 Lenguaje Lotus. Bajo licencia MIT.",
+      "links": "GitHub | AUR | Documentación"
+    }
+  },
+  "fr": {
+    "nav": {
+      "home": "Accueil",
+      "gettingStarted": "Commencer",
+      "documentation": "Documentation",
+      "examples": "Exemples",
+      "install": "Installer"
+    },
+    "header": {
+      "title": "Lotus",
+      "subtitle": "Un langage de programmation système élégant et moderne"
+    },
+    "welcome": {
+      "title": "Bienvenue à Lotus",
+      "description": "Lotus est un langage de programmation système moderne qui combine la philosophie de sécurité de Rust, les performances de C++ et la simplicité de Go. Il compile en assembleur x86-64 avec une bibliothèque standard modulaire et une syntaxe d'importation inspirée par Rust."
+    },
+    "features": {
+      "title": "Caractéristiques Principales",
+      "typeSyntax": {
+        "title": "🔤 Syntaxe Type-First",
+        "description": "Déclarez les variables avec le type en premier : int count = 42;"
+      },
+      "modularImports": {
+        "title": "📦 Importations Modulaires",
+        "description": "Système de modules inspiré par Rust : use \"io\";"
+      },
+      "directAssembly": {
+        "title": "⚡ Assembleur Direct",
+        "description": "Compile en assembleur GNU x86-64 avec contrôle total"
+      },
+      "memorySafety": {
+        "title": "🛡️ Sécurité de la Mémoire",
+        "description": "Gestion explicite de la mémoire avec malloc/free et sécurité des types"
+      },
+      "stdlib": {
+        "title": "📚 Bibliothèque Standard",
+        "description": "Modules pour les opérations d'E/S, mémoire, mathématiques et chaînes"
+      },
+      "simpleDesign": {
+        "title": "🎯 Conception Simple",
+        "description": "Syntaxe claire et lisible qui priorise la clarté"
+      }
+    },
+    "quickExample": {
+      "title": "Exemple Rapide",
+      "getStarted": "Commencer",
+      "viewMore": "Voir Plus d'Exemples"
+    },
+    "installation": {
+      "title": "Installation",
+      "description": "Disponible sur Arch Linux via AUR, ou construire à partir de la source :",
+      "aur": "AUR (Arch Linux)",
+      "source": "À Partir de la Source",
+      "guide": "Guide d'Installation",
+      "aurPackage": "Paquetage AUR"
+    },
+    "documentation": {
+      "title": "Documentation et Ressources",
+      "gettingStarted": {
+        "title": "📖 Commencer",
+        "description": "Apprenez les bases et configurez Lotus"
+      },
+      "examples": {
+        "title": "💡 Exemples",
+        "description": "Explorez des exemples de code pratiques"
+      },
+      "docs": {
+        "title": "📚 Documentation",
+        "description": "Référence complète du langage et documentation API"
+      },
+      "install": {
+        "title": "🔧 Installation",
+        "description": "Plusieurs méthodes d'installation"
+      }
+    },
+    "stdlib": {
+      "title": "Modules de la Bibliothèque Standard",
+      "description": "Lotus est livré avec une bibliothèque standard modulaire :",
+      "io": "Sortie de style Printf avec tous les verbes de formatage similaires à Go",
+      "mem": "Allocation mémoire dynamique avec malloc/free/sizeof",
+      "math": "Fonctions mathématiques (abs, min, max, et plus)",
+      "str": "Opérations sur les chaînes (len, concat, compare, copy)",
+      "explore": "Explorez Stdlib"
+    },
+    "community": {
+      "title": "Communauté et Liens",
+      "github": "Dépôt GitHub",
+      "githubDesc": "Code source, problèmes et contributions",
+      "aur": "Paquetage AUR",
+      "aurDesc": "Installer sur Arch Linux",
+      "bugs": "Rapports de Bogues",
+      "bugsDesc": "Signaler des problèmes ou suggérer des fonctionnalités",
+      "license": "Licence MIT",
+      "licenseDesc": "Gratuit et open source"
+    },
+    "footer": {
+      "copyright": "© 2025 Langage Lotus. Sous licence MIT.",
+      "links": "GitHub | AUR | Documentation"
+    }
+  },
+  "de": {
+    "nav": {
+      "home": "Startseite",
+      "gettingStarted": "Erste Schritte",
+      "documentation": "Dokumentation",
+      "examples": "Beispiele",
+      "install": "Installieren"
+    },
+    "header": {
+      "title": "Lotus",
+      "subtitle": "Eine elegante und moderne Systemprogrammiersprache"
+    },
+    "welcome": {
+      "title": "Willkommen bei Lotus",
+      "description": "Lotus ist eine moderne Systemprogrammiersprache, die die Sicherheitsphilosophie von Rust, die Leistung von C++ und die Einfachheit von Go verbindet. Es wird zu x86-64-Assembler mit einer modularen Standardbibliothek und Rust-inspirierter Importsyntax kompiliert."
+    },
+    "features": {
+      "title": "Hauptmerkmale",
+      "typeSyntax": {
+        "title": "🔤 Type-First-Syntax",
+        "description": "Deklarieren Sie Variablen mit Typ zuerst: int count = 42;"
+      },
+      "modularImports": {
+        "title": "📦 Modulare Importe",
+        "description": "Rust-inspiriertes Modulsystem: use \"io\";"
+      },
+      "directAssembly": {
+        "title": "⚡ Direkter Assembler",
+        "description": "Kompiliert zu x86-64-GNU-Assembler mit vollständiger Kontrolle"
+      },
+      "memorySafety": {
+        "title": "🛡️ Speichersicherheit",
+        "description": "Explizite Speicherverwaltung mit malloc/free und Typsicherheit"
+      },
+      "stdlib": {
+        "title": "📚 Standardbibliothek",
+        "description": "Module für E/A-, Speicher-, Mathematik- und Stringoperationen"
+      },
+      "simpleDesign": {
+        "title": "🎯 Einfaches Design",
+        "description": "Klare, lesbare Syntax, die Klarheit priorisiert"
+      }
+    },
+    "quickExample": {
+      "title": "Schnellbeispiel",
+      "getStarted": "Erste Schritte",
+      "viewMore": "Weitere Beispiele anzeigen"
+    },
+    "installation": {
+      "title": "Installation",
+      "description": "Verfügbar auf Arch Linux über AUR oder Kompilierung aus dem Quellcode:",
+      "aur": "AUR (Arch Linux)",
+      "source": "Aus dem Quellcode",
+      "guide": "Installationsanleitung",
+      "aurPackage": "AUR-Paket"
+    },
+    "documentation": {
+      "title": "Dokumentation und Ressourcen",
+      "gettingStarted": {
+        "title": "📖 Erste Schritte",
+        "description": "Lernen Sie die Grundlagen und richten Sie Lotus ein"
+      },
+      "examples": {
+        "title": "💡 Beispiele",
+        "description": "Erkunden Sie praktische Codebeispiele"
+      },
+      "docs": {
+        "title": "📚 Dokumentation",
+        "description": "Vollständige Sprachreferenz und API-Dokumentation"
+      },
+      "install": {
+        "title": "🔧 Installation",
+        "description": "Mehrere Installationsmethoden"
+      }
+    },
+    "stdlib": {
+      "title": "Standardbibliotheks-Module",
+      "description": "Lotus wird mit einer modularen Standardbibliothek geliefert:",
+      "io": "Printf-ähnliche Ausgabe mit vollständigen Go-ähnlichen Formatierungsverben",
+      "mem": "Dynamische Speicherallokation mit malloc/free/sizeof",
+      "math": "Mathematische Funktionen (abs, min, max und mehr)",
+      "str": "String-Operationen (len, concat, compare, copy)",
+      "explore": "Stdlib erkunden"
+    },
+    "community": {
+      "title": "Gemeinschaft und Links",
+      "github": "GitHub-Repository",
+      "githubDesc": "Quellcode, Probleme und Beiträge",
+      "aur": "AUR-Paket",
+      "aurDesc": "Installation auf Arch Linux",
+      "bugs": "Fehlerberichte",
+      "bugsDesc": "Melden Sie Probleme oder schlagen Sie Funktionen vor",
+      "license": "MIT-Lizenz",
+      "licenseDesc": "Kostenlos und Open Source"
+    },
+    "footer": {
+      "copyright": "© 2025 Lotus-Sprache. Unter MIT-Lizenz.",
+      "links": "GitHub | AUR | Dokumentation"
+    }
+  },
+  "ja": {
+    "nav": {
+      "home": "ホーム",
+      "gettingStarted": "はじめに",
+      "documentation": "ドキュメント",
+      "examples": "例",
+      "install": "インストール"
+    },
+    "header": {
+      "title": "Lotus",
+      "subtitle": "エレガントで現代的なシステムプログラミング言語"
+    },
+    "welcome": {
+      "title": "Lotusへようこそ",
+      "description": "Lotusは、Rustの安全性哲学、C++のパフォーマンス、Goのシンプルさを組み合わせた最新のシステムプログラミング言語です。モジュール化された標準ライブラリとRust風のインポート構文でx86-64アセンブリにコンパイルします。"
+    },
+    "features": {
+      "title": "主な特徴",
+      "typeSyntax": {
+        "title": "🔤 型優先の構文",
+        "description": "型を最初に宣言します：int count = 42;"
+      },
+      "modularImports": {
+        "title": "📦 モジュール化されたインポート",
+        "description": "Rust風のモジュールシステム：use \"io\";"
+      },
+      "directAssembly": {
+        "title": "⚡ 直接アセンブリ",
+        "description": "完全な制御でx86-64 GNU アセンブリにコンパイル"
+      },
+      "memorySafety": {
+        "title": "🛡️ メモリセーフティ",
+        "description": "malloc/freeとタイプセーフによる明示的なメモリ管理"
+      },
+      "stdlib": {
+        "title": "📚 標準ライブラリ",
+        "description": "I/O、メモリ、数学、文字列操作用のモジュール"
+      },
+      "simpleDesign": {
+        "title": "🎯 シンプルな設計",
+        "description": "明確性を優先したクリーンで読みやすい構文"
+      }
+    },
+    "quickExample": {
+      "title": "クイック例",
+      "getStarted": "はじめる",
+      "viewMore": "他の例を見る"
+    },
+    "installation": {
+      "title": "インストール",
+      "description": "Arch LinuxのAURで入手可能、またはソースからビルド：",
+      "aur": "AUR (Arch Linux)",
+      "source": "ソースからビルド",
+      "guide": "インストールガイド",
+      "aurPackage": "AURパッケージ"
+    },
+    "documentation": {
+      "title": "ドキュメント＆リソース",
+      "gettingStarted": {
+        "title": "📖 はじめに",
+        "description": "基本を学んでLotusをセットアップ"
+      },
+      "examples": {
+        "title": "💡 例",
+        "description": "実践的なコード例を探索"
+      },
+      "docs": {
+        "title": "📚 ドキュメント",
+        "description": "完全な言語リファレンスとAPIドキュメント"
+      },
+      "install": {
+        "title": "🔧 インストール",
+        "description": "複数のインストール方法"
+      }
+    },
+    "stdlib": {
+      "title": "標準ライブラリモジュール",
+      "description": "Lotusはモジュール化された標準ライブラリ付属：",
+      "io": "Go風の完全なフォーマットverbを持つPrintf形式の出力",
+      "mem": "malloc/free/sizeofを使用した動的メモリ割り当て",
+      "math": "数学関数（abs、min、maxなど）",
+      "str": "文字列操作（len、concat、compare、copy）",
+      "explore": "Stdlibを探索"
+    },
+    "community": {
+      "title": "コミュニティ＆リンク",
+      "github": "GitHubリポジトリ",
+      "githubDesc": "ソースコード、問題、貢献",
+      "aur": "AURパッケージ",
+      "aurDesc": "Arch Linuxにインストール",
+      "bugs": "バグレポート",
+      "bugsDesc": "問題を報告または機能を提案",
+      "license": "MITライセンス",
+      "licenseDesc": "無料でオープンソース"
+    },
+    "footer": {
+      "copyright": "© 2025 Lotus言語。MITライセンスの下。",
+      "links": "GitHub | AUR | ドキュメント"
+    }
+  },
+  "zh": {
+    "nav": {
+      "home": "首页",
+      "gettingStarted": "入门",
+      "documentation": "文档",
+      "examples": "示例",
+      "install": "安装"
+    },
+    "header": {
+      "title": "Lotus",
+      "subtitle": "优雅而现代的系统编程语言"
+    },
+    "welcome": {
+      "title": "欢迎来到Lotus",
+      "description": "Lotus是一种现代系统编程语言，融合了Rust的安全哲学、C++的性能和Go的简洁性。它编译为x86-64汇编，具有模块化标准库和Rust启发的导入语法。"
+    },
+    "features": {
+      "title": "主要特性",
+      "typeSyntax": {
+        "title": "🔤 类型优先语法",
+        "description": "首先声明类型的变量：int count = 42;"
+      },
+      "modularImports": {
+        "title": "📦 模块化导入",
+        "description": "Rust启发的模块系统：use \"io\";"
+      },
+      "directAssembly": {
+        "title": "⚡ 直接汇编",
+        "description": "编译为x86-64 GNU汇编，完全控制"
+      },
+      "memorySafety": {
+        "title": "🛡️ 内存安全",
+        "description": "使用malloc/free和类型安全进行显式内存管理"
+      },
+      "stdlib": {
+        "title": "📚 标准库",
+        "description": "用于I/O、内存、数学和字符串操作的模块"
+      },
+      "simpleDesign": {
+        "title": "🎯 简单设计",
+        "description": "优先考虑清晰性的清晰、可读的语法"
+      }
+    },
+    "quickExample": {
+      "title": "快速示例",
+      "getStarted": "入门",
+      "viewMore": "查看更多示例"
+    },
+    "installation": {
+      "title": "安装",
+      "description": "在Arch Linux上通过AUR可用，或从源代码构建：",
+      "aur": "AUR (Arch Linux)",
+      "source": "从源代码构建",
+      "guide": "安装指南",
+      "aurPackage": "AUR包"
+    },
+    "documentation": {
+      "title": "文档和资源",
+      "gettingStarted": {
+        "title": "📖 入门",
+        "description": "了解基础知识并设置Lotus"
+      },
+      "examples": {
+        "title": "💡 示例",
+        "description": "探索实用的代码示例"
+      },
+      "docs": {
+        "title": "📚 文档",
+        "description": "完整的语言参考和API文档"
+      },
+      "install": {
+        "title": "🔧 安装",
+        "description": "多种安装方法"
+      }
+    },
+    "stdlib": {
+      "title": "标准库模块",
+      "description": "Lotus提供模块化标准库：",
+      "io": "Printf风格的输出，具有完整的Go风格格式化动词",
+      "mem": "使用malloc/free/sizeof进行动态内存分配",
+      "math": "数学函数（abs、min、max等）",
+      "str": "字符串操作（len、concat、compare、copy）",
+      "explore": "浏览Stdlib"
+    },
+    "community": {
+      "title": "社区和链接",
+      "github": "GitHub仓库",
+      "githubDesc": "源代码、问题和贡献",
+      "aur": "AUR包",
+      "aurDesc": "在Arch Linux上安装",
+      "bugs": "错误报告",
+      "bugsDesc": "报告问题或建议功能",
+      "license": "MIT许可证",
+      "licenseDesc": "免费且开源"
+    },
+    "footer": {
+      "copyright": "© 2025 Lotus语言。在MIT许可证下。",
+      "links": "GitHub | AUR | 文档"
+    }
+  }
+}
