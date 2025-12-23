@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         translator.setLanguage(urlLang);
     }
 
+    // Ensure language switcher is visible
+    setTimeout(() => {
+        if (!document.getElementById('language-switcher')) {
+            console.warn('⚠️ Language switcher not found, creating it now');
+            translator.setupLanguageSwitcher();
+        }
+    }, 500);
+
     // Initialize SEO Service
     const seoService = new SEOService();
     

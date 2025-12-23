@@ -39,6 +39,9 @@ class TranslationService {
             console.log('✅ Translations loaded successfully');
         } catch (error) {
             console.error('❌ Error loading translations:', error);
+            console.warn('⚠️ Language switcher will still be available with default language');
+            // Still setup the language switcher even if translations fail to load
+            this.setupLanguageSwitcher();
         }
     }
 
