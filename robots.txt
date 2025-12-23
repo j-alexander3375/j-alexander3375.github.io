@@ -31,4 +31,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://lotus-lang.dev/sitemap.xml
+Sitemap: https://lotus-lang.org/sitemap.xml

@@ -34,6 +34,8 @@ class TranslationService {
             const data = await response.json();
             this.translations = data;
             this.applyTranslations();
+            this.setupLanguageSwitcher();
+            this.updatePageLanguage();
             console.log('✅ Translations loaded successfully');
         } catch (error) {
             console.error('❌ Error loading translations:', error);
@@ -66,6 +68,7 @@ class TranslationService {
         this.currentLanguage = lang;
         localStorage.setItem('lotus_language', lang);
         this.applyTranslations();
+        this.setupLanguageSwitcher();
         this.updatePageLanguage();
     }
 

@@ -1,3 +1,51 @@
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text: #1f2430;
+    --muted: #555;
+    --border: #e5e7ef;
+    --accent: #667eea;
+    --accent-2: #764ba2;
+    --shadow: 0 2px 5px rgba(0,0,0,0.05);
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --code-bg: #2d2d2d;
+    --code-text: #f8f8f2;
+    --header-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --nav-bg: #ffffff;
+    --footer-bg: #333333;
+    --footer-text: #ffffff;
+    --link: #667eea;
+    --link-hover: #4e5ad4;
+    --pill-bg: #f4f4f4;
+    --pill-border: #667eea;
+    --switcher-bg: #ffffff;
+    --switcher-border: #dddddd;
+ }
+
+[data-theme="dark"] {
+    --bg: #0f1117;
+    --surface: #161925;
+    --text: #e7eaf3;
+    --muted: #c3cad5;
+    --border: #2a2f3c;
+    --accent: #8fa2ff;
+    --accent-2: #9b7bff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.35);
+    --card-shadow: 0 2px 10px rgba(0,0,0,0.45);
+    --code-bg: #0c0f17;
+    --code-text: #e8ecf5;
+    --header-gradient: linear-gradient(135deg, #2b3a67 0%, #513b7c 100%);
+    --nav-bg: #141722;
+    --footer-bg: #0d1018;
+    --footer-text: #e7eaf3;
+    --link: #9bb0ff;
+    --link-hover: #c3d1ff;
+    --pill-bg: #1f2533;
+    --pill-border: #9bb0ff;
+    --switcher-bg: #1b2130;
+    --switcher-border: #2d3446;
+ }
+
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +55,12 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: #fafafa;
+    color: var(--text);
+    background: var(--bg);
 }
 
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--header-gradient);
     color: white;
     padding: 60px 20px;
     text-align: center;
@@ -29,11 +77,11 @@ header p {
 }
 
 nav {
-    background: white;
+    background: var(--nav-bg);
     padding: 15px;
     text-align: center;
-    border-bottom: 2px solid #667eea;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-bottom: 2px solid var(--accent);
+    box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -42,20 +90,20 @@ nav {
 nav a {
     margin: 0 20px;
     text-decoration: none;
-    color: #333;
+    color: var(--text);
     font-weight: 500;
     display: inline-block;
 }
 
 nav a:hover {
-    color: #667eea;
-    border-bottom: 2px solid #667eea;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 5px;
 }
 
 nav a.active {
-    color: #667eea;
-    border-bottom: 2px solid #667eea;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 5px;
 }
 
@@ -70,35 +118,35 @@ section {
 }
 
 section h2 {
-    color: #667eea;
+    color: var(--accent);
     margin-bottom: 20px;
     font-size: 2em;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid var(--border);
     padding-bottom: 10px;
 }
 
 section h3 {
-    color: #555;
+    color: var(--muted);
     margin-top: 25px;
     margin-bottom: 15px;
     font-size: 1.4em;
 }
 
 code {
-    background: #f4f4f4;
+    background: var(--pill-bg);
     padding: 2px 6px;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
 }
 
 pre {
-    background: #2d2d2d;
-    color: #f8f8f2;
+    background: var(--code-bg);
+    color: var(--code-text);
     padding: 20px;
     border-radius: 5px;
     overflow-x: auto;
     margin: 20px 0;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent);
 }
 
 .features {
@@ -109,11 +157,11 @@ pre {
 }
 
 .feature-card {
-    background: white;
+    background: var(--surface);
     padding: 20px;
     border-radius: 8px;
-    border-left: 4px solid #667eea;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--accent);
+    box-shadow: var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -123,13 +171,13 @@ pre {
 }
 
 .feature-card h3 {
-    color: #667eea;
+    color: var(--accent);
     margin-bottom: 10px;
 }
 
 .button {
     display: inline-block;
-    background: #667eea;
+    background: var(--accent);
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -139,17 +187,17 @@ pre {
 }
 
 .button:hover {
-    background: #764ba2;
+    background: var(--accent-2);
 }
 
 .button.secondary {
-    background: #f4f4f4;
-    color: #333;
-    border: 2px solid #667eea;
+    background: var(--pill-bg);
+    color: var(--text);
+    border: 2px solid var(--pill-border);
 }
 
 .button.secondary:hover {
-    background: #667eea;
+    background: var(--accent);
     color: white;
 }
 
@@ -165,31 +213,31 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background: white;
+    background: var(--surface);
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 
 th {
-    background: #667eea;
-    color: white;
+    background: var(--accent);
+    color: var(--surface);
     padding: 15px;
     text-align: left;
 }
 
 td {
     padding: 12px 15px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border);
 }
 
 tr:hover {
-    background: #f9f9f9;
+    background: var(--pill-bg);
 }
 
 footer {
-    background: #333;
-    color: white;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     text-align: center;
     padding: 30px 20px;
     margin-top: 60px;
@@ -200,7 +248,7 @@ footer p {
 }
 
 footer a {
-    color: #667eea;
+    color: var(--link);
     text-decoration: none;
 }
 
@@ -209,23 +257,23 @@ footer a:hover {
 }
 
 .example-block {
-    background: white;
+    background: var(--surface);
     padding: 20px;
     border-radius: 5px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent);
     margin: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 
 .breadcrumb {
     padding: 10px 0;
     margin-bottom: 20px;
     font-size: 0.9em;
-    color: #666;
+    color: var(--muted);
 }
 
 .breadcrumb a {
-    color: #667eea;
+    color: var(--link);
     text-decoration: none;
 }
 
@@ -241,22 +289,22 @@ footer a:hover {
     display: flex;
     gap: 8px;
     z-index: 1000;
-    background: white;
+    background: var(--switcher-bg);
     padding: 8px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border: 1px solid #ddd;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--switcher-border);
 }
 
 .lang-btn {
-    background: white;
-    border: 1px solid #ddd;
+    background: var(--surface);
+    border: 1px solid var(--switcher-border);
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.85em;
     font-weight: 500;
-    color: #333;
+    color: var(--text);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -264,17 +312,17 @@ footer a:hover {
 }
 
 .lang-btn:hover {
-    background: #f0f0f0;
-    border-color: #667eea;
-    color: #667eea;
+    background: var(--pill-bg);
+    border-color: var(--accent);
+    color: var(--accent);
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 .lang-btn.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
     color: white;
-    border-color: #667eea;
+    border-color: var(--accent);
     font-weight: 600;
 }
 
@@ -296,6 +344,39 @@ footer a:hover {
     .lang-btn {
         font-size: 0.8em;
         padding: 6px 10px;
+    }
+}
+
+/* Theme toggle control */
+.theme-toggle {
+    position: fixed;
+    top: 76px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--switcher-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: var(--card-shadow);
+    transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: auto;
+        right: auto;
+        bottom: 80px;
+        left: 20px;
     }
 }
 

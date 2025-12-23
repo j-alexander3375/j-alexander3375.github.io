@@ -4,11 +4,14 @@
       "home": "Home",
       "gettingStarted": "Getting Started",
       "documentation": "Documentation",
+      "styleGuide": "Style Guide",
+      "development": "Development",
       "examples": "Examples",
-      "install": "Install"
+      "install": "Install",
+      "contact": "Contact"
     },
     "header": {
-      "title": "Lotus",
+      "title": "🪷 Lotus",
       "subtitle": "A elegant and modern systems programming language"
     },
     "welcome": {
@@ -104,11 +107,14 @@
       "home": "Inicio",
       "gettingStarted": "Comenzar",
       "documentation": "Documentación",
+      "styleGuide": "Guía de Estilo",
+      "development": "Desarrollo",
       "examples": "Ejemplos",
-      "install": "Instalar"
+      "install": "Instalar",
+      "contact": "Contacto"
     },
     "header": {
-      "title": "Lotus",
+      "title": "🪷 Lotus",
       "subtitle": "Un lenguaje de programación de sistemas elegante y moderno"
     },
     "welcome": {
@@ -204,11 +210,14 @@
       "home": "Accueil",
       "gettingStarted": "Commencer",
       "documentation": "Documentation",
+      "styleGuide": "Guide de style",
+      "development": "Développement",
       "examples": "Exemples",
-      "install": "Installer"
+      "install": "Installer",
+      "contact": "Contact"
     },
     "header": {
-      "title": "Lotus",
+      "title": "🪷 Lotus",
       "subtitle": "Un langage de programmation système élégant et moderne"
     },
     "welcome": {
@@ -304,11 +313,14 @@
       "home": "Startseite",
       "gettingStarted": "Erste Schritte",
       "documentation": "Dokumentation",
+      "styleGuide": "Style Guide",
+      "development": "Entwicklung",
       "examples": "Beispiele",
-      "install": "Installieren"
+      "install": "Installieren",
+      "contact": "Kontakt"
     },
     "header": {
-      "title": "Lotus",
+      "title": "🪷 Lotus",
       "subtitle": "Eine elegante und moderne Systemprogrammiersprache"
     },
     "welcome": {
@@ -404,11 +416,14 @@
       "home": "ホーム",
       "gettingStarted": "はじめに",
       "documentation": "ドキュメント",
+      "styleGuide": "スタイルガイド",
+      "development": "開発",
       "examples": "例",
-      "install": "インストール"
+      "install": "インストール",
+      "contact": "お問い合わせ"
     },
     "header": {
-      "title": "Lotus",
+      "title": "🪷 Lotus",
       "subtitle": "エレガントで現代的なシステムプログラミング言語"
     },
     "welcome": {
@@ -504,11 +519,14 @@
       "home": "首页",
       "gettingStarted": "入门",
       "documentation": "文档",
+      "styleGuide": "风格指南",
+      "development": "开发",
       "examples": "示例",
-      "install": "安装"
+      "install": "安装",
+      "contact": "联系"
     },
     "header": {
-      "title": "Lotus",
+      "title": "🪷 Lotus",
       "subtitle": "优雅而现代的系统编程语言"
     },
     "welcome": {

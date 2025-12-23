@@ -5,10 +5,19 @@
 
 // Initialize services when DOM is ready
 document.addEventListener('DOMContentLoaded', async function() {
+    const theme = getInitialTheme();
+    applyTheme(theme);
+    setupThemeToggle(theme);
+
     // Initialize Translation Service
     const translator = new TranslationService();
     await translator.loadTranslationsFromFile('./locales/translations.json');
-    
+
+    const urlLang = getLanguageFromURL();
+    if (urlLang && translator.isSupported(urlLang)) {
+        translator.setLanguage(urlLang);
+    }
+
     // Initialize SEO Service
     const seoService = new SEOService();
     
@@ -167,13 +176,49 @@ function getLanguageFromURL() {
     return params.get('lang');
 }
 
-// Set up language from URL if present
-if (getLanguageFromURL() && typeof TranslationService !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', function() {
-        const translator = new TranslationService();
-        const lang = getLanguageFromURL();
-        if (translator.isSupported(lang)) {
-            translator.setLanguage(lang);
-        }
-    });
+/**
+ * Theme utilities
+ */
+const THEME_STORAGE_KEY = 'lotus_theme';
+
+function getInitialTheme() {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved === 'light' || saved === 'dark') {
+        return saved;
+    }
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+    const next = theme === 'dark' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+    updateThemeToggleLabel(next);
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(current === 'light' ? 'dark' : 'light');
+}
+
+function setupThemeToggle(initialTheme) {
+    let toggle = document.getElementById('theme-toggle');
+    if (!toggle) {
+        toggle = document.createElement('button');
+        toggle.id = 'theme-toggle';
+        toggle.className = 'theme-toggle';
+        toggle.type = 'button';
+        toggle.addEventListener('click', toggleTheme);
+        document.body.appendChild(toggle);
+    }
+    applyTheme(initialTheme || 'light');
+}
+
+function updateThemeToggleLabel(theme) {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+    const isDark = theme === 'dark';
+    toggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 }
