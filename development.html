@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development - Lotus Programming Language</title>
+    <meta name="description" content="Lotus compiler development guide, contributing to the project, building from source, and development setup instructions.">
+    <meta name="keywords" content="Lotus development, contributing, compiler development, source code, build guide">
+    <meta name="author" content="j-alexander3375">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Development - Lotus">
+    <meta property="og:description" content="Development guide and contribution information for Lotus">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lotus-lang.dev/development.html">
+    <meta property="og:site_name" content="Lotus Programming Language">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lotus Development Guide">
+    <meta name="twitter:description" content="Development guide and contribution information for Lotus">
+    <meta name="twitter:site" content="@LotusLang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lotus-lang.dev/development.html">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🪷 Lotus</h1>
+        <p>A elegant and modern systems programming language</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="docs.html">Documentation</a>
+        <a href="examples.html">Examples</a>
+        <a href="install.html">Install</a>
+        <a href="style-guide.html">Style Guide</a>
+        <a href="development.html" class="active">Development</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Development Guide</h2>
+            <p>This guide covers setting up your development environment, building the Lotus compiler, running tests, and contributing to the project.</p>
+        </section>
+
+        <section>
+            <h3>Prerequisites</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Go 1.16+</strong> - Programming language for the compiler</li>
+                <li><strong>GCC or Clang</strong> - For assembling generated code</li>
+                <li><strong>Git</strong> - Version control</li>
+                <li><strong>Make</strong> - Build automation (optional)</li>
+            </ul>
+
+            <h4>Install Dependencies</h4>
+            <p><strong>Linux (Arch):</strong></p>
+            <pre>pacman -S go gcc git make</pre>
+
+            <p><strong>Linux (Ubuntu/Debian):</strong></p>
+            <pre>sudo apt-get install golang-go gcc git make</pre>
+
+            <p><strong>macOS:</strong></p>
+            <pre>brew install go gcc git make</pre>
+
+            <p><strong>Windows (WSL2):</strong></p>
+            <pre># Inside WSL2
+sudo apt-get install golang-go gcc git make</pre>
+        </section>
+
+        <section>
+            <h3>Setting Up Development Environment</h3>
+            
+            <h4>1. Clone Repository</h4>
+            <pre>git clone https://github.com/j-alexander3375/Lotus.git
+cd Lotus</pre>
+
+            <h4>2. Install Go Dependencies</h4>
+            <pre>go mod tidy</pre>
+
+            <h4>3. Build Compiler</h4>
+            <pre>go build -o lotus ./src</pre>
+
+            <h4>4. Verify Installation</h4>
+            <pre>./lotus -v</pre>
+
+            <p>Should output version information if successful.</p>
+        </section>
+
+        <section>
+            <h3>Project Structure</h3>
+            
+            <h4>Directory Layout</h4>
+            <pre>Lotus/
+├── src/
+│   ├── main.go          # Entry point and CLI
+│   ├── lexer.go         # Tokenization
+│   ├── parser.go        # Syntax parsing
+│   ├── typechecker.go   # Type checking
+│   ├── codegen.go       # Code generation
+│   ├── stdlib.go        # Standard library
+│   └── ... (other modules)
+├── CMakeLists.txt       # Build configuration
+├── README.md            # Project overview
+└── main.lts             # Bootstrap code
+</pre>
+
+            <h4>Module Responsibilities</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>main.go</strong> - CLI interface and program entry point</li>
+                <li><strong>lexer.go</strong> - Tokenizes source code</li>
+                <li><strong>parser.go</strong> - Parses tokens into AST</li>
+                <li><strong>typechecker.go</strong> - Validates types and semantics</li>
+                <li><strong>codegen.go</strong> - Generates x86-64 assembly</li>
+                <li><strong>stdlib.go</strong> - Standard library implementation</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Building and Testing</h3>
+            
+            <h4>Development Build</h4>
+            <pre>go build -o lotus ./src</pre>
+
+            <h4>Optimized Build</h4>
+            <pre>go build -ldflags="-s -w" -o lotus ./src</pre>
+
+            <h4>Testing</h4>
+            <pre># Run all tests
+go test ./src
+
+# Run specific test
+go test -run TestName ./src
+
+# Verbose output
+go test -v ./src</pre>
+
+            <h4>Running a Lotus Program</h4>
+            <pre>./lotus -S -o output.s program.lts  # Generate assembly
+gcc -c output.s -o output.o                    # Assemble
+gcc output.o -o program                        # Link
+./program                                       # Run</pre>
+        </section>
+
+        <section>
+            <h3>Common Development Tasks</h3>
+            
+            <h4>Adding a New Built-in Function</h4>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Declare function in <code>stdlib.go</code></li>
+                <li>Implement code generation in appropriate module</li>
+                <li>Add test cases in <code>*_test.go</code></li>
+                <li>Update documentation</li>
+                <li>Test thoroughly</li>
+            </ol>
+
+            <h4>Fixing a Bug</h4>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Create a test case that reproduces the bug</li>
+                <li>Verify test fails</li>
+                <li>Fix the bug</li>
+                <li>Verify test passes</li>
+                <li>Check for regressions</li>
+            </ol>
+
+            <h4>Implementing a Language Feature</h4>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Update lexer for new tokens (if needed)</li>
+                <li>Update parser to handle new syntax</li>
+                <li>Add type checking logic</li>
+                <li>Implement code generation</li>
+                <li>Write comprehensive tests</li>
+                <li>Update documentation</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Debugging</h3>
+            
+            <h4>Generated Assembly</h4>
+            <p>View generated assembly code:</p>
+            <pre>./lotus -S -o output.s program.lts
+cat output.s</pre>
+
+            <h4>Using GDB</h4>
+            <pre># Build with debug symbols
+go build -gcflags="-N -l" -o lotus ./src
+
+# Run with debugger
+gdb ./lotus</pre>
+
+            <h4>Printf Debugging</h4>
+            <p>Add fmt.Printf statements in Go code to trace execution:</p>
+            <pre>fmt.Printf("Debug: value=%d\n", value)</pre>
+
+            <h4>Test Failures</h4>
+            <p>Run specific test with verbose output:</p>
+            <pre>go test -v -run TestName ./src</pre>
+        </section>
+
+        <section>
+            <h3>Code Review Checklist</h3>
+            
+            <h4>Before Submitting PR</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>✅ Code follows style guide</li>
+                <li>✅ All tests pass</li>
+                <li>✅ No regressions introduced</li>
+                <li>✅ Documentation updated</li>
+                <li>✅ Commit messages are clear</li>
+                <li>✅ Changes are focused and minimal</li>
+                <li>✅ Code is properly commented</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Contributing to Lotus</h3>
+            
+            <h4>Getting Started</h4>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Fork the repository on GitHub</li>
+                <li>Clone your fork locally</li>
+                <li>Create a feature branch: <code>git checkout -b feature/your-feature</code></li>
+                <li>Make your changes</li>
+                <li>Write or update tests</li>
+                <li>Update documentation</li>
+                <li>Commit with clear messages</li>
+                <li>Push to your fork</li>
+                <li>Create a Pull Request</li>
+            </ol>
+
+            <h4>Pull Request Guidelines</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Title:</strong> Clear, concise description of changes</li>
+                <li><strong>Description:</strong> Explain what and why (not just what)</li>
+                <li><strong>Tests:</strong> Include test cases for new functionality</li>
+                <li><strong>Documentation:</strong> Update relevant docs</li>
+                <li><strong>Linked Issues:</strong> Reference any related issues</li>
+                <li><strong>One concern per PR:</strong> Keep scope focused</li>
+            </ul>
+
+            <h4>Reporting Issues</h4>
+            <p>When reporting a bug, include:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Clear description of the issue</li>
+                <li>Steps to reproduce</li>
+                <li>Expected vs actual behavior</li>
+                <li>Environment (OS, Go version, Lotus version)</li>
+                <li>Minimal reproducible example</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Standard Library Development</h3>
+            
+            <h4>Adding a New Module</h4>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Define module structure in <code>stdlib.go</code></li>
+                <li>Implement module functions</li>
+                <li>Add to module registry</li>
+                <li>Create comprehensive tests</li>
+                <li>Document module API</li>
+            </ol>
+
+            <h4>Module Categories</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>io</strong> - Input/output and formatting</li>
+                <li><strong>mem</strong> - Memory management</li>
+                <li><strong>math</strong> - Mathematical operations</li>
+                <li><strong>str</strong> - String operations</li>
+                <li><strong>future</strong> - Time, file I/O, collections, etc.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Performance Optimization</h3>
+            
+            <h4>Profiling</h4>
+            <p>Profile compiler performance:</p>
+            <pre>go test -cpuprofile=cpu.prof -memprofile=mem.prof ./src
+go tool pprof cpu.prof</pre>
+
+            <h4>Benchmarking</h4>
+            <p>Write benchmarks in test files:</p>
+            <pre>func BenchmarkCompile(b *testing.B) {
+    for i := 0; i &lt; b.N; i++ {
+        // Code to benchmark
+    }
+}</pre>
+
+            <h4>Common Optimization Areas</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Parser efficiency</li>
+                <li>Type checking algorithms</li>
+                <li>Code generation speed</li>
+                <li>Memory allocations</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Release Process</h3>
+            
+            <h4>Version Numbering</h4>
+            <p>Follow semantic versioning: <strong>MAJOR.MINOR.PATCH</strong></p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>MAJOR:</strong> Breaking changes</li>
+                <li><strong>MINOR:</strong> New features (backward compatible)</li>
+                <li><strong>PATCH:</strong> Bug fixes</li>
+            </ul>
+
+            <h4>Release Steps</h4>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Update version in appropriate files</li>
+                <li>Update CHANGELOG</li>
+                <li>Create release notes</li>
+                <li>Tag release in Git</li>
+                <li>Build release binaries</li>
+                <li>Upload to GitHub Releases</li>
+                <li>Update package managers (AUR, etc.)</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Resources</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><a href="https://github.com/j-alexander3375/Lotus">GitHub Repository</a></li>
+                <li><a href="https://golang.org/doc/">Go Documentation</a></li>
+                <li><a href="https://go.dev/blog/">Go Blog</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/X86-64">x86-64 Architecture</a></li>
+                <li><a href="https://github.com/j-alexander3375/Lotus/issues">Issue Tracker</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <p><a href="docs.html" class="button secondary">← Back to Documentation</a> 
+               <a href="contact.html" class="button">Get Help</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lotus Language. Licensed under MIT.</p>
+        <p><a href="https://github.com/j-alexander3375/Lotus">GitHub</a> | 
+           <a href="https://aur.archlinux.org/packages/lotus-lang">AUR</a> | 
+           <a href="docs.html">Documentation</a></p>
+    </footer>
+
+    <!-- SEO and Translation Services -->
+    <script src="js/seo.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

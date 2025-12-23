@@ -1,5 +1,5 @@
 # robots.txt for Lotus Programming Language Website
-# https://lotus-lang.dev/robots.txt
+# https://lotus-lang.org/robots.txt
 
 User-agent: *
 Allow: /

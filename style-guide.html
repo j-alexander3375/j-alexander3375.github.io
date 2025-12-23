@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guide - Lotus Programming Language</title>
+    <meta name="description" content="Lotus programming language style guide and best practices for writing clean, consistent, and maintainable code.">
+    <meta name="keywords" content="Lotus style guide, code style, best practices, conventions, formatting">
+    <meta name="author" content="j-alexander3375">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Style Guide - Lotus">
+    <meta property="og:description" content="Style guide and best practices for Lotus programming language">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lotus-lang.dev/style-guide.html">
+    <meta property="og:site_name" content="Lotus Programming Language">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lotus Style Guide">
+    <meta name="twitter:description" content="Style guide and best practices for Lotus">
+    <meta name="twitter:site" content="@LotusLang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lotus-lang.dev/style-guide.html">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🪷 Lotus</h1>
+        <p>A elegant and modern systems programming language</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="docs.html">Documentation</a>
+        <a href="examples.html">Examples</a>
+        <a href="install.html">Install</a>
+        <a href="style-guide.html" class="active">Style Guide</a>
+        <a href="development.html">Development</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Lotus Style Guide</h2>
+            <p>This style guide outlines conventions and best practices for writing Lotus code. Following these guidelines ensures consistent, readable, and maintainable code across the Lotus ecosystem.</p>
+        </section>
+
+        <section>
+            <h3>Code Formatting</h3>
+            
+            <h4>Indentation</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Use 4 spaces</strong> for indentation (not tabs)</li>
+                <li>Maintain consistent indentation throughout your code</li>
+                <li>Each nesting level adds 4 spaces</li>
+            </ul>
+
+            <h4>Line Length</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Maximum 100 characters</strong> per line</li>
+                <li>Break long lines at logical points</li>
+                <li>Use line continuation for long expressions</li>
+            </ul>
+
+            <h4>Blank Lines</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use blank lines to separate logical sections</li>
+                <li>Two blank lines between functions</li>
+                <li>One blank line between logical blocks within functions</li>
+            </ul>
+
+            <h4>Whitespace</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Surround operators with spaces: <code>a = b + c</code></li>
+                <li>Space after commas: <code>func(a, b, c)</code></li>
+                <li>No spaces around parentheses: <code>func(x)</code> not <code>func ( x )</code></li>
+                <li>Space after colons in control structures: <code>if x: { ... }</code></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Naming Conventions</h3>
+            
+            <h4>Variables and Constants</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Variables:</strong> Use lowercase with underscores: <code>user_count</code>, <code>max_value</code></li>
+                <li><strong>Constants:</strong> Use UPPERCASE with underscores: <code>MAX_SIZE</code>, <code>DEFAULT_TIMEOUT</code></li>
+                <li>Use descriptive names that indicate purpose</li>
+                <li>Avoid single-letter variables except in loops</li>
+            </ul>
+
+            <h4>Functions</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use lowercase with underscores: <code>calculate_total()</code>, <code>process_data()</code></li>
+                <li>Use verbs for function names: <code>get_value()</code>, <code>set_color()</code></li>
+                <li>Prefix boolean-returning functions with <code>is_</code> or <code>has_</code>: <code>is_empty()</code>, <code>has_error()</code></li>
+            </ul>
+
+            <h4>Types</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use PascalCase for type names: <code>Person</code>, <code>DatabaseConnection</code></li>
+                <li>Be descriptive and clear about the type's purpose</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Comments and Documentation</h3>
+            
+            <h4>Inline Comments</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use <code>//</code> for inline comments</li>
+                <li>Keep comments concise and meaningful</li>
+                <li>Explain <em>why</em>, not <em>what</em> the code does</li>
+            </ul>
+
+            <h4>Block Comments</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use <code>/* */</code> for block comments</li>
+                <li>Explain complex logic or design decisions</li>
+                <li>Provide context for non-obvious code</li>
+            </ul>
+
+            <h4>Function Documentation</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Document the purpose of the function</li>
+                <li>List parameters and their types</li>
+                <li>Document return value and type</li>
+                <li>Include usage examples for complex functions</li>
+            </ul>
+
+            <div class="example-block">
+                <strong>Example:</strong>
+                <pre>// Calculate factorial of n
+// Parameters: n (int) - non-negative integer
+// Returns: int - factorial of n
+fn int factorial(int n) {
+    if n <= 1: {
+        ret 1;
+    }
+    ret n * factorial(n - 1);
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Control Flow</h3>
+            
+            <h4>If Statements</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use consistent brace style: opening brace on same line</li>
+                <li>Always use braces, even for single-line blocks</li>
+                <li>Break long conditions across multiple lines</li>
+            </ul>
+
+            <div class="example-block">
+                <strong>Good:</strong>
+                <pre>if x > 10: {
+    printf("x is large\n");
+}
+
+if condition1 && condition2 &&
+   condition3: {
+    // Handle case
+}</pre>
+            </div>
+
+            <h4>Loops</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use <code>for</code> loops for iteration with known count</li>
+                <li>Use <code>while</code> loops for conditional iteration</li>
+                <li>Keep loop bodies concise and readable</li>
+            </ul>
+
+            <h4>Error Handling</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Check error conditions explicitly</li>
+                <li>Use clear error messages</li>
+                <li>Return appropriate exit codes from main function</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Functions</h3>
+            
+            <h4>Function Declaration</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Declare return type explicitly</li>
+                <li>Use clear parameter names with types</li>
+                <li>Keep function signatures readable</li>
+            </ul>
+
+            <div class="example-block">
+                <strong>Good:</strong>
+                <pre>fn int add(int a, int b) {
+    ret a + b;
+}
+
+fn void process_data(int count, 
+                     int max_size) {
+    // Implementation
+}</pre>
+            </div>
+
+            <h4>Function Length</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Keep functions focused and concise</li>
+                <li>Aim for functions under 50 lines</li>
+                <li>Break complex logic into smaller functions</li>
+                <li>Each function should do one thing well</li>
+            </ul>
+
+            <h4>Return Values</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Return early to avoid deep nesting</li>
+                <li>Use consistent return patterns</li>
+                <li>Document what each return value means</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Memory Management</h3>
+            
+            <h4>Allocation</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use <code>malloc()</code> for dynamic allocation</li>
+                <li>Check allocation success</li>
+                <li>Always pair allocations with deallocations</li>
+            </ul>
+
+            <h4>Deallocation</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use <code>free()</code> to release memory</li>
+                <li>Free memory in the same scope where it was allocated</li>
+                <li>Set pointers to null after freeing (when applicable)</li>
+                <li>Avoid use-after-free and double-free bugs</li>
+            </ul>
+
+            <div class="example-block">
+                <strong>Good:</strong>
+                <pre>int* data = malloc(100 * sizeof(int));
+if data: {
+    // Use data
+    free(data);
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Printf Usage</h3>
+            
+            <h4>Formatting</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Use <code>%d</code> for integers</li>
+                <li>Use <code>%s</code> for strings</li>
+                <li>Use <code>%c</code> for characters</li>
+                <li>Include newlines for line breaks: <code>\n</code></li>
+            </ul>
+
+            <h4>Format Verbs</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><code>%d</code> - decimal integer</li>
+                <li><code>%x</code> - hexadecimal (lowercase)</li>
+                <li><code>%X</code> - hexadecimal (uppercase)</li>
+                <li><code>%o</code> - octal</li>
+                <li><code>%b</code> - binary</li>
+                <li><code>%s</code> - string</li>
+                <li><code>%c</code> - character</li>
+                <li><code>%v</code> - generic value</li>
+            </ul>
+
+            <div class="example-block">
+                <strong>Good:</strong>
+                <pre>int value = 42;
+printf("The answer is %d\n", value);
+printf("Hex: %x, Oct: %o\n", value, value);
+printf("String: %s\n", "hello world");</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Best Practices</h3>
+            
+            <h4>General Guidelines</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Readability First:</strong> Write code for humans, not machines</li>
+                <li><strong>Be Consistent:</strong> Follow the same patterns throughout your code</li>
+                <li><strong>Use Meaningful Names:</strong> Avoid cryptic abbreviations</li>
+                <li><strong>Keep It Simple:</strong> Avoid unnecessary complexity</li>
+                <li><strong>Test Thoroughly:</strong> Test edge cases and error conditions</li>
+            </ul>
+
+            <h4>Performance Considerations</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Profile before optimizing</li>
+                <li>Avoid premature optimization</li>
+                <li>Use appropriate data structures</li>
+                <li>Be mindful of memory usage</li>
+            </ul>
+
+            <h4>Code Organization</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Group related functions together</li>
+                <li>Order functions logically</li>
+                <li>Keep imports organized</li>
+                <li>Use clear section comments for different parts</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Common Pitfalls to Avoid</h3>
+            
+            <h4>Memory Issues</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>❌ Not checking malloc() return value</li>
+                <li>❌ Using freed memory</li>
+                <li>❌ Memory leaks from unreleased allocations</li>
+                <li>❌ Buffer overflows</li>
+            </ul>
+
+            <h4>Logic Errors</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>❌ Uninitialized variables</li>
+                <li>❌ Off-by-one errors in loops</li>
+                <li>❌ Incorrect operator precedence</li>
+                <li>❌ Missing return statements</li>
+            </ul>
+
+            <h4>Style Issues</h4>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>❌ Inconsistent naming conventions</li>
+                <li>❌ Over-complicated expressions</li>
+                <li>❌ Missing comments for complex code</li>
+                <li>❌ Deeply nested control structures</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Quick Checklist</h3>
+            <p>Before submitting code, verify:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>✅ Code follows naming conventions</li>
+                <li>✅ Consistent indentation (4 spaces)</li>
+                <li>✅ Line length under 100 characters</li>
+                <li>✅ All functions documented</li>
+                <li>✅ No memory leaks</li>
+                <li>✅ Error conditions handled</li>
+                <li>✅ Code is tested</li>
+                <li>✅ Meaningful variable/function names used</li>
+            </ul>
+        </section>
+
+        <section>
+            <p><a href="docs.html" class="button secondary">← Back to Documentation</a> 
+               <a href="contact.html" class="button">Get Help</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lotus Language. Licensed under MIT.</p>
+        <p><a href="https://github.com/j-alexander3375/Lotus">GitHub</a> | 
+           <a href="https://aur.archlinux.org/packages/lotus-lang">AUR</a> | 
+           <a href="docs.html">Documentation</a></p>
+    </footer>
+
+    <!-- SEO and Translation Services -->
+    <script src="js/seo.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>
