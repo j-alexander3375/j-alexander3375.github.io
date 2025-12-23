@@ -6,7 +6,7 @@
 class SEOService {
     constructor() {
         this.siteName = "Lotus Programming Language";
-        this.siteUrl = "https://lotus-lang.dev";
+        this.siteUrl = "https://lotus-lang.org";
         this.description = "Lotus - A modern systems programming language that compiles to x86-64 assembly with modular stdlib and Rust-inspired imports.";
         this.author = "j-alexander3375";
         this.locale = "en_US";
