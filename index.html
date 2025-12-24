@@ -85,11 +85,11 @@
         <section>
             <h3>Quick Example</h3>
             <pre>use "io";
-use "math";
+use "hash";
 
 fn int main() {
-    int max_val = max(10, 20);
-    printf("Maximum: %d\n", max_val);
+    int h = djb2("Lotus");
+    printf("DJB2('Lotus'): %d\n", h);
     ret 0;
 }</pre>
             <p><a href="getting-started.html" class="button">Get Started</a> <a href="examples.html" class="button secondary">View More Examples</a></p>
@@ -158,8 +158,13 @@ go build -o lotus ./src</pre>
             <ul style="margin-left: 20px; margin-top: 15px;">
                 <li><strong>io</strong> - Printf-style output with full Go-like formatting verbs</li>
                 <li><strong>mem</strong> - Dynamic memory allocation with malloc/free/sizeof</li>
-                <li><strong>math</strong> - Mathematical functions (abs, min, max, and more)</li>
-                <li><strong>str</strong> - String operations (len, concat, compare, copy)</li>
+                <li><strong>math</strong> - Mathematical functions (abs, min, max, sqrt, pow, gcd, lcm)</li>
+                <li><strong>str</strong> - String operations (len, concat, compare, copy, indexOf, contains)</li>
+                <li><strong>num</strong> - Numeric conversions (toInt*, toUint*, toBool)</li>
+                <li><strong>hash</strong> - Hashing (djb2, fnv1a, crc32, murmur3)</li>
+                <li><strong>collections</strong> - Arrays, stacks, queues, heaps, hash maps/sets</li>
+                <li><strong>net</strong> - Sockets and send/recv helpers</li>
+                <li><strong>http</strong> - Simple HTTP GET built on net</li>
             </ul>
             <p><a href="docs.html#stdlib" class="button secondary">Explore Stdlib</a></p>
         </section>

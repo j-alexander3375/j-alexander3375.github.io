@@ -63,6 +63,70 @@ fn int main() {
         </section>
 
         <section>
+            <h3>Hashing Basics</h3>
+            <p>Compute hashes using the <code>hash</code> module:</p>
+            <div class="example-block">
+                <pre>use "io";
+use "hash";
+
+fn int main() {
+    const string msg = "Test";
+
+    int h1 = djb2(msg);
+    printf("DJB2('%s'): %d\n", msg, h1);
+
+    int h2 = fnv1a(msg, 4);
+    printf("FNV-1a('%s'): %d\n", msg, h2);
+
+    int h3 = crc32(msg, 4);
+    printf("CRC32('%s'): %d\n", msg, h3);
+
+    int h4 = murmur(msg, 4, 42);
+    printf("Murmur3('%s', seed=42): %d\n", msg, h4);
+
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Collections: Dynamic Array</h3>
+            <p>Use dynamic arrays from the <code>collections</code> module:</p>
+            <div class="example-block">
+                <pre>use "io";
+use "collections";
+
+fn int main() {
+    int* arr = array_int_new(8);
+    array_int_push(arr, 10);
+    array_int_push(arr, 20);
+    int n = array_int_len(arr);
+
+    printf("Array length: %d\n", n);
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Networking: Connect & Send</h3>
+            <p>A minimal TCP connect using the <code>net</code> module:</p>
+            <div class="example-block">
+                <pre>use "net";
+
+fn int main() {
+    int fd = socket(2, 1, 0); // AF_INET, SOCK_STREAM
+    int ok = connect_ipv4(fd, 0x7F000001, 8080); // 127.0.0.1:8080
+    if ok == 0 {
+        send(fd, "hi", 2);
+        close(fd);
+    }
+    ret 0;
+}</pre>
+            </div>
+        </section>
+
+        <section>
             <h3>Working with Functions</h3>
             <p>Functions with parameters and return values:</p>
             <div class="example-block">

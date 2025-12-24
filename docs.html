@@ -141,8 +141,8 @@ for int i = 0; i < 10; i = i + 1 {
         </section>
 
         <section>
-            <h3>📦 Standard Library Modules</h3>
-            
+            <h3 id="stdlib">📦 Standard Library Modules</h3>
+
             <h4>io - Input/Output</h4>
             <pre>use "io";
 
@@ -166,19 +166,68 @@ free(buffer);</pre>
 
 int abs_val = abs(-42);
 int max_val = max(10, 20);
-int min_val = min(10, 20);</pre>
+int min_val = min(10, 20);
+int r = sqrt(81);
+int p = pow(2, 10);</pre>
 
-            <p><strong>Implemented:</strong> abs, min, max</p>
-            <p><strong>Pending:</strong> sqrt, pow</p>
+            <p><strong>Implemented:</strong> abs, min, max, sqrt, pow, floor, ceil, round, gcd, lcm</p>
 
             <h4>str - String Operations</h4>
             <pre>use "str";
 
 int length = len("Lotus");
-// concat, compare, copy pending</pre>
+string both = concat("Lo", "tus");
+int cmp = compare("a", "b");
+string copy_of_name = copy("Lotus");</pre>
 
-            <p><strong>Implemented:</strong> len</p>
-            <p><strong>Pending:</strong> concat, compare, copy</p>
+            <p><strong>Implemented:</strong> len, concat, compare, copy, indexOf, contains, startsWith, endsWith</p>
+
+            <h4>num - Numeric Conversions</h4>
+            <pre>use "num";
+
+int64 big = toInt64(42);
+uint8 small = toUint8(255);
+bool ok = toBool(1);</pre>
+
+            <p><strong>Functions:</strong> toInt8, toUint8, toInt16, toUint16, toInt32, toUint32, toInt64, toUint64, toBool</p>
+
+            <h4>hash - Hashing</h4>
+            <pre>use "hash";
+
+int djb = djb2("Hello");
+int fnv = fnv1a("Hello", 5);
+int crc = crc32("Hello", 5);
+int mur = murmur("Hello", 5, 42);</pre>
+
+            <p><strong>Functions:</strong> djb2(string), fnv1a(ptr,len), crc32(ptr,len), murmur(ptr,len,seed), sha256(ptr,len,out), md5(ptr,len,out)</p>
+
+            <h4>collections - Data Structures</h4>
+            <pre>use "collections";
+
+int* arr = array_int_new(16);
+array_int_push(arr, 10);
+int n = array_int_len(arr);
+int idx = binary_search_int(arr, n, 10);</pre>
+
+            <p><strong>Includes:</strong> dynamic arrays, stacks, queues, deques, heaps, hash maps, hash sets; helpers like binary_search_int</p>
+
+            <h4>net - Networking (low-level)</h4>
+            <pre>use "net";
+
+int fd = socket(2, 1, 0); // AF_INET, SOCK_STREAM
+int ok = connect_ipv4(fd, 0x7F000001, 8080); // 127.0.0.1:8080
+send(fd, "hi", 2);
+close(fd);</pre>
+
+            <p><strong>Functions:</strong> socket, connect_ipv4, send, recv, close</p>
+
+            <h4>http - HTTP Client</h4>
+            <pre>use "http";
+
+// Simplified GET
+int status = get("example.com", 80, "/", null, null, null, null);</pre>
+
+            <p><strong>Functions:</strong> get(host, port, path, headers..., out_buf)</p>
         </section>
 
         <section>
