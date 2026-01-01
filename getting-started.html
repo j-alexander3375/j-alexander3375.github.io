@@ -46,7 +46,7 @@
     <div class="container">
         <section>
             <h2>Getting Started with Lotus</h2>
-            <p>Lotus is a systems programming language that combines the safety philosophy of Rust, the performance of C++, and the simplicity of Go. Here's how to get up and running.</p>
+            <p>Lotus is a systems programming language that combines the safety philosophy of Rust, the performance of C++, and the simplicity of Go. Version 1.3.0 features an LLVM backend for multi-architecture support (x86, ARM, RISC-V, WebAssembly). Here's how to get up and running.</p>
         </section>
 
         <section>
@@ -102,9 +102,9 @@ fn int main() {
 use "math";</code>
                 </div>
                 <div class="feature-card">
-                    <h4>⚡ Direct Assembly</h4>
-                    <p>Compiles to x86-64 GNU assembly with full control:</p>
-                    <code>lotus -S program.lts</code>
+                    <h4>⚡ LLVM Backend</h4>
+                    <p>LLVM-powered with multi-architecture support:</p>
+                    <code>lotus --target=arm program.lts</code>
                 </div>
                 <div class="feature-card">
                     <h4>🛡️ Memory Safety</h4>

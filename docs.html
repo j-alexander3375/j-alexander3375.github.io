@@ -237,19 +237,36 @@ int status = get("example.com", 80, "/", null, null, null, null);</pre>
             <pre>lotus [flags] &lt;file&gt;
 
 Flags:
-  -S              Generate assembly only (.s file)
+  -S              Generate assembly/IR only
   -o FILE         Output file name (default: a.out)
   -run            Compile and run immediately
   -v              Verbose output
   -version        Show compiler version
-  -h, -help       Show help message</pre>
+  -h, -help       Show help message
+
+LLVM Backend (default):
+  --emit-llvm     Output LLVM IR instead of binary
+  -O0, -O1, -O2, -O3   Optimization levels
+  --target=ARCH   Target architecture (x86, arm, riscv, wasm)
+
+Legacy GCC Backend:
+  --gcc           Use GCC assembly backend instead of LLVM</pre>
 
             <h4>Examples</h4>
-            <pre># Compile to binary
+            <pre># Compile to binary (uses LLVM by default)
 lotus program.lts
 
-# Compile to assembly
-lotus -S program.lts -o program.s
+# Compile with optimization
+lotus -O2 program.lts
+
+# Generate LLVM IR
+lotus --emit-llvm program.lts -o program.ll
+
+# Cross-compile for ARM
+lotus --target=arm program.lts
+
+# Use legacy GCC backend
+lotus --gcc program.lts
 
 # Compile and run
 lotus -run program.lts
@@ -270,18 +287,23 @@ cat program.s</pre>
             <p>See <a href="https://github.com/j-alexander3375/Lotus/blob/master/Important_Documentation/STDLIB_IMPLEMENTATION.md">STDLIB_IMPLEMENTATION.md</a> for details on adding new modules and functions.</p>
 
             <h4>Architecture</h4>
-            <p>Lotus uses a multi-phase compiler:</p>
+            <p>Lotus uses a multi-phase compiler with LLVM backend:</p>
             <pre>Source Code
     ↓
 Tokenizer (Lexical Analysis)
     ↓
 Parser (Syntax Analysis)
     ↓
-Code Generator (Assembly Generation)
+LLVM Code Generator (IR Generation)
     ↓
-GCC (Assembler/Linker)
+LLVM Optimizer (O0-O3)
+    ↓
+LLVM Backend (x86/ARM/RISC-V/WASM)
     ↓
 Binary Executable</pre>
+
+            <p>Legacy GCC backend (--gcc flag) uses:</p>
+            <pre>Source Code → Tokenizer → Parser → x86-64 Assembly → GCC → Binary</pre>
         </section>
 
         <section>

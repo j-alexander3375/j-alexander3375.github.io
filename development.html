@@ -52,25 +52,26 @@
         <section>
             <h3>Prerequisites</h3>
             <ul style="margin-left: 20px; margin-top: 15px;">
-                <li><strong>Go 1.16+</strong> - Programming language for the compiler</li>
-                <li><strong>GCC or Clang</strong> - For assembling generated code</li>
+                <li><strong>Go 1.20+</strong> - Programming language for the compiler</li>
+                <li><strong>LLVM 14+</strong> - Required for the LLVM backend (default)</li>
+                <li><strong>GCC or Clang</strong> - For the legacy assembly backend (--gcc flag)</li>
                 <li><strong>Git</strong> - Version control</li>
                 <li><strong>Make</strong> - Build automation (optional)</li>
             </ul>
 
             <h4>Install Dependencies</h4>
             <p><strong>Linux (Arch):</strong></p>
-            <pre>pacman -S go gcc git make</pre>
+            <pre>pacman -S go llvm gcc git make</pre>
 
             <p><strong>Linux (Ubuntu/Debian):</strong></p>
-            <pre>sudo apt-get install golang-go gcc git make</pre>
+            <pre>sudo apt-get install golang-go llvm-dev gcc git make</pre>
 
             <p><strong>macOS:</strong></p>
-            <pre>brew install go gcc git make</pre>
+            <pre>brew install go llvm gcc git make</pre>
 
             <p><strong>Windows (WSL2):</strong></p>
             <pre># Inside WSL2
-sudo apt-get install golang-go gcc git make</pre>
+sudo apt-get install golang-go llvm-dev gcc git make</pre>
         </section>
 
         <section>
@@ -99,24 +100,27 @@ cd Lotus</pre>
             <pre>Lotus/
 ├── src/
 │   ├── main.go          # Entry point and CLI
-│   ├── lexer.go         # Tokenization
+│   ├── tokenizer.go     # Tokenization
 │   ├── parser.go        # Syntax parsing
-│   ├── typechecker.go   # Type checking
-│   ├── codegen.go       # Code generation
+│   ├── llvm_codegen.go  # LLVM IR generation (default)
+│   ├── codegen.go       # Legacy x86-64 assembly generation
+│   ├── optimizer.go     # Peephole optimizations
 │   ├── stdlib.go        # Standard library
 │   └── ... (other modules)
-├── CMakeLists.txt       # Build configuration
-├── README.md            # Project overview
-└── main.lts             # Bootstrap code
+├── tests/               # Test files (.lts)
+├── examples/            # Example programs
+├── ext/                 # VS Code extension
+└── site/                # Documentation website
 </pre>
 
             <h4>Module Responsibilities</h4>
             <ul style="margin-left: 20px; margin-top: 15px;">
                 <li><strong>main.go</strong> - CLI interface and program entry point</li>
-                <li><strong>lexer.go</strong> - Tokenizes source code</li>
+                <li><strong>tokenizer.go</strong> - Tokenizes source code into tokens</li>
                 <li><strong>parser.go</strong> - Parses tokens into AST</li>
-                <li><strong>typechecker.go</strong> - Validates types and semantics</li>
-                <li><strong>codegen.go</strong> - Generates x86-64 assembly</li>
+                <li><strong>llvm_codegen.go</strong> - Generates LLVM IR (default backend)</li>
+                <li><strong>codegen.go</strong> - Generates x86-64 assembly (--gcc flag)</li>
+                <li><strong>optimizer.go</strong> - Peephole optimizations for assembly</li>
                 <li><strong>stdlib.go</strong> - Standard library implementation</li>
             </ul>
         </section>

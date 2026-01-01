@@ -72,7 +72,8 @@ makepkg -si</pre>
             <h4>Prerequisites</h4>
             <ul style="margin-left: 20px; margin-top: 10px;">
                 <li>Go 1.20 or later</li>
-                <li>GCC (for assembling/linking)</li>
+                <li>LLVM 14+ (for LLVM backend)</li>
+                <li>GCC (optional, for legacy --gcc backend)</li>
                 <li>Git</li>
             </ul>
 
@@ -98,13 +99,13 @@ export PATH=$PATH:$(pwd)</pre>
 
             <h4>Install Dependencies</h4>
             <p><strong>Debian/Ubuntu:</strong></p>
-            <pre>sudo apt install golang-go gcc git</pre>
+            <pre>sudo apt install golang-go llvm-dev gcc git</pre>
 
             <p><strong>Fedora/RHEL:</strong></p>
-            <pre>sudo dnf install golang gcc git</pre>
+            <pre>sudo dnf install golang llvm-devel gcc git</pre>
 
             <p><strong>openSUSE:</strong></p>
-            <pre>sudo zypper install go gcc git</pre>
+            <pre>sudo zypper install go llvm-devel gcc git</pre>
 
             <p>Then follow the "Build Steps" above.</p>
         </section>
@@ -119,7 +120,7 @@ brew install lotus-lang</pre>
 
             <h4>From Source</h4>
             <pre># Install dependencies
-brew install go gcc
+brew install go llvm gcc
 
 # Clone and build
 git clone https://github.com/j-alexander3375/Lotus.git
@@ -138,7 +139,7 @@ sudo cp lotus /usr/local/bin/</pre>
             <p>Install Windows Subsystem for Linux 2 and use the Linux instructions above.</p>
 
             <h4>Using MSYS2</h4>
-            <pre>pacman -S mingw-w64-x86_64-go mingw-w64-x86_64-gcc git
+            <pre>pacman -S mingw-w64-x86_64-go mingw-w64-x86_64-llvm mingw-w64-x86_64-gcc git
 git clone https://github.com/j-alexander3375/Lotus.git
 cd Lotus
 go build -o lotus.exe ./src</pre>
